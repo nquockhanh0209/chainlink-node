@@ -1,0 +1,73 @@
+2022-10-14T11:22:43.180Z	error	1.8.1@1186b42.GeneralConfig	config/general_config.go:426	DEPRECATION WARNING: Database has missing or insufficiently complex password: 
+Expected password complexity:
+Must be at least 16 characters long
+Must not comprise:
+	Leading or trailing whitespace
+	A user's API email
+
+Faults:
+	password is 4 characters long
+.
+Database should be secured by a password matching the following complexity requirements:
+
+Must have a length of 16-50 characters
+Must not comprise:
+	Leading or trailing whitespace (note that a trailing newline in the password file, if present, will be ignored)
+
+This error will PREVENT BOOT in a future version of Chainlink. To bypass this check at your own risk, you may set SKIP_DATABASE_PASSWORD_COMPLEXITY_CHECK=true
+
+	{"sentryEventID": null}
+github.com/smartcontractkit/chainlink/core/config.(*generalConfig).Validate
+	/chainlink/core/config/general_config.go:426
+github.com/smartcontractkit/chainlink/core/cmd.(*Client).runNode
+	/chainlink/core/cmd/local_client.go:69
+github.com/smartcontractkit/chainlink/core/cmd.(*Client).RunNode
+	/chainlink/core/cmd/local_client.go:55
+github.com/urfave/cli.HandleAction
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:524
+github.com/urfave/cli.Command.Run
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:173
+github.com/urfave/cli.(*App).RunAsSubcommand
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:405
+github.com/urfave/cli.Command.startApp
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:378
+github.com/urfave/cli.Command.Run
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:102
+github.com/urfave/cli.(*App).Run
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:277
+main.run
+	/chainlink/core/main.go:21
+main.main.func1
+	/chainlink/core/main.go:14
+github.com/smartcontractkit/chainlink/core/recovery.ReportPanics
+	/chainlink/core/recovery/recover.go:18
+main.main
+	/chainlink/core/main.go:13
+runtime.main
+	/usr/local/go/src/runtime/proc.go:250
+2022-10-14T11:22:43.180Z	info	1.8.1@1186b42.RunNode	cmd/local_client.go:74	Starting Chainlink Node 1.8.1 at commit 1186b42457aed935af8536e69cfe5f26bb4e35e9	{"Version": "1.8.1", "SHA": "1186b42457aed935af8536e69cfe5f26bb4e35e9"}
+2022-10-14T11:22:43.193Z	error	1.8.1@1186b42	cmd/local_client.go:57	Cannot boot Chainlink: opening db: failed to open db: failed to connect to `host=pg_chainlink user=username database=chainlink`: hostname resolving error (lookup pg_chainlink on 10.22.1.21:53: server misbehaving)	{"err": "Cannot boot Chainlink: opening db: failed to open db: failed to connect to `host=pg_chainlink user=username database=chainlink`: hostname resolving error (lookup pg_chainlink on 10.22.1.21:53: server misbehaving)", "errVerbose": "opening db: failed to open db: failed to connect to `host=pg_chainlink user=username database=chainlink`: hostname resolving error (lookup pg_chainlink on 10.22.1.21:53: server misbehaving)\nCannot boot Chainlink\ngithub.com/smartcontractkit/chainlink/core/cmd.(*Client).RunNode\n\t/chainlink/core/cmd/local_client.go:56\ngithub.com/urfave/cli.HandleAction\n\t/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:524\ngithub.com/urfave/cli.Command.Run\n\t/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:173\ngithub.com/urfave/cli.(*App).RunAsSubcommand\n\t/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:405\ngithub.com/urfave/cli.Command.startApp\n\t/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:378\ngithub.com/urfave/cli.Command.Run\n\t/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:102\ngithub.com/urfave/cli.(*App).Run\n\t/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:277\nmain.run\n\t/chainlink/core/main.go:21\nmain.main.func1\n\t/chainlink/core/main.go:14\ngithub.com/smartcontractkit/chainlink/core/recovery.ReportPanics\n\t/chainlink/core/recovery/recover.go:18\nmain.main\n\t/chainlink/core/main.go:13\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:250\nruntime.goexit\n\t/usr/local/go/src/runtime/asm_amd64.s:1571", "sentryEventID": null}
+github.com/smartcontractkit/chainlink/core/cmd.(*Client).RunNode
+	/chainlink/core/cmd/local_client.go:57
+github.com/urfave/cli.HandleAction
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:524
+github.com/urfave/cli.Command.Run
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:173
+github.com/urfave/cli.(*App).RunAsSubcommand
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:405
+github.com/urfave/cli.Command.startApp
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:378
+github.com/urfave/cli.Command.Run
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/command.go:102
+github.com/urfave/cli.(*App).Run
+	/go/pkg/mod/github.com/urfave/cli@v1.22.9/app.go:277
+main.run
+	/chainlink/core/main.go:21
+main.main.func1
+	/chainlink/core/main.go:14
+github.com/smartcontractkit/chainlink/core/recovery.ReportPanics
+	/chainlink/core/recovery/recover.go:18
+main.main
+	/chainlink/core/main.go:13
+runtime.main
+	/usr/local/go/src/runtime/proc.go:250

@@ -1,0 +1,20 @@
+services:
+  pg_chainlink:
+    image: "postgres"
+    ports: 
+      - "5432:5432"
+    env_file:
+      - "database.env"
+    volumes:
+      - /home/chainlink-goerli/data:/var/lib/postgressql/data/
+  chainlink:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - pg_chainlink
+    ports:
+      - "6688:6688"
+    volumes:
+      - /home/chainlink-goerli/chainlink-volume:/chainlink/
+    command: node start local n -p /home/chainlink/.password -a /home/chainlink/.api 
